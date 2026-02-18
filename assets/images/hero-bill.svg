@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <rect width="1200" height="420" fill="#edf4ff"/>
+  <rect y="300" width="1200" height="120" fill="#d9e8d5"/>
+  <rect x="130" y="95" width="300" height="220" rx="10" fill="#ffffff" stroke="#bccce7"/>
+  <rect x="165" y="135" width="220" height="12" rx="6" fill="#d5e2f8"/>
+  <rect x="165" y="165" width="220" height="12" rx="6" fill="#d5e2f8"/>
+  <rect x="165" y="195" width="220" height="12" rx="6" fill="#d5e2f8"/>
+  <rect x="165" y="225" width="130" height="50" rx="6" fill="#1b3d6d"/>
+  <text x="80" y="70" font-family="Segoe UI, Arial" font-size="28" fill="#1b3d6d">Booking Confirmation</text>
+</svg>

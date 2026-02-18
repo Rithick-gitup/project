@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#f2f7ff"/>
+  <rect y="300" width="1000" height="120" fill="#dcead8"/>
+  <polygon points="150,300 300,120 450,300" fill="#9ab6dc"/>
+  <polygon points="390,300 550,100 710,300" fill="#7fa0cf"/>
+  <circle cx="810" cy="90" r="40" fill="#ffd36b"/>
+  <rect x="720" y="180" width="170" height="120" fill="#2f5d97"/>
+  <text x="80" y="70" font-family="Segoe UI, Arial" font-size="28" fill="#1f4f83">Adventure Park</text>
+</svg>

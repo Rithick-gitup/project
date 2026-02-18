@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420">
+  <rect width="1000" height="420" fill="#eef8ff"/>
+  <rect y="290" width="1000" height="130" fill="#d4e6d0"/>
+  <ellipse cx="500" cy="310" rx="240" ry="58" fill="#9cc8e7"/>
+  <circle cx="220" cy="180" r="85" fill="#90be7f"/>
+  <circle cx="360" cy="190" r="95" fill="#7eb06f"/>
+  <circle cx="770" cy="190" r="95" fill="#8dbc7e"/>
+  <text x="80" y="70" font-family="Segoe UI, Arial" font-size="28" fill="#2d5d88">Eco Park</text>
+</svg>

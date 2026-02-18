@@ -1,0 +1,382 @@
+/* ===============================
+   GLOBAL RESET
+=================================*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Roboto,Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:linear-gradient(135deg,#e8f0fe,#f8f9fa);
+    color:#202124;
+}
+
+.gov-banner{
+    background:linear-gradient(90deg,#f6f8fb,#e8f0fe);
+    border-top:1px solid #d7e3f8;
+    border-bottom:1px solid #d7e3f8;
+    padding:14px 24px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.gov-emblem{
+    width:44px;
+    height:44px;
+    object-fit:contain;
+}
+
+.gov-title{
+    font-size:16px;
+    font-weight:700;
+    color:#1b3d6d;
+}
+
+.gov-subtitle{
+    font-size:13px;
+    color:#455a7a;
+}
+
+/* ===============================
+   HEADER
+=================================*/
+header{
+    background:#ffffff;
+    padding:18px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:600;
+    color:#1a73e8;
+}
+
+nav a{
+    margin-left:25px;
+    text-decoration:none;
+    color:#5f6368;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#1a73e8;
+}
+
+/* ===============================
+   CONTAINER
+=================================*/
+.container{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px 20px;
+}
+
+/* ===============================
+   CARD DESIGN
+=================================*/
+.card{
+    width:100%;
+    max-width:550px;
+    background:#ffffff;
+    border-radius:16px;
+    padding:40px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h1, .card h2{
+    margin-bottom:20px;
+}
+
+.page-image{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:18px;
+    border:1px solid #dfe5ef;
+}
+
+.lead{
+    color:#3c4043;
+    margin-bottom:12px;
+    line-height:1.6;
+}
+
+.details-line{
+    margin-top:8px;
+    line-height:1.6;
+}
+
+.note{
+    margin-top:14px;
+    font-size:14px;
+    color:#5f6368;
+    line-height:1.6;
+}
+
+/* ===============================
+   INPUT FIELDS
+=================================*/
+input{
+    width:100%;
+    padding:14px;
+    margin:12px 0;
+    border-radius:8px;
+    border:1px solid #dadce0;
+    outline:none;
+    transition:.3s;
+}
+
+input:focus{
+    border-color:#1a73e8;
+    box-shadow:0 0 0 3px rgba(26,115,232,0.15);
+}
+
+select{
+    width:100%;
+    padding:14px;
+    margin:12px 0;
+    border-radius:8px;
+    border:1px solid #dadce0;
+    outline:none;
+    transition:.3s;
+    background:#fff;
+}
+
+select:focus{
+    border-color:#1a73e8;
+    box-shadow:0 0 0 3px rgba(26,115,232,0.15);
+}
+
+label{
+    font-size:14px;
+    font-weight:600;
+    color:#3c4043;
+    margin-top:8px;
+    display:block;
+}
+
+/* ===============================
+   BUTTON
+=================================*/
+.btn{
+    width:100%;
+    padding:14px;
+    margin-top:18px;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    cursor:pointer;
+    background:linear-gradient(45deg,#1a73e8,#4285f4);
+    color:#fff;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(26,115,232,0.3);
+}
+
+/* ===============================
+   PARK BOX
+=================================*/
+.park-box{
+    padding:20px;
+    margin:15px 0;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+    transition:.3s;
+}
+
+.park-box:hover{
+    transform:scale(1.03);
+}
+
+.park-image{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:14px;
+    border:1px solid #e3e8f1;
+}
+
+.park-box p{
+    margin-top:8px;
+    line-height:1.6;
+}
+
+/* ===============================
+   PAYMENT OPTIONS
+=================================*/
+.payment-option {
+    background:#ffffff;
+    padding:14px 16px;
+    border-radius:10px;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    transition:all 0.3s ease;
+    border:1px solid #e5e7eb;
+    cursor:pointer;
+}
+
+.payment-option:hover {
+    background:#f0f6ff;
+    border-color:#1a73e8;
+    transform:translateY(-2px);
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.payment-option input[type="radio"] {
+    transform:scale(1.2);
+    cursor:pointer;
+}
+
+.payment-option label {
+    font-size:15px;
+    font-weight:500;
+    color:#202124;
+    cursor:pointer;
+    width:100%;
+}
+
+.summary-box{
+    margin:18px 0 16px;
+    padding:16px;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    background:#f8fbff;
+}
+
+.summary-box p{
+    margin:6px 0;
+}
+
+/* ===============================
+   BILL SECTION
+=================================*/
+.bill{
+    line-height:1.8;
+    font-size:15px;
+}
+
+.bill strong{
+    color:#1a73e8;
+}
+
+/* ===============================
+   FOOTER
+=================================*/
+footer{
+    background:#ffffff;
+    padding:18px;
+    text-align:center;
+    color:#5f6368;
+    box-shadow:0 -2px 10px rgba(0,0,0,0.05);
+}
+
+/* ===============================
+   RESPONSIVE
+=================================*/
+@media (max-width: 1024px) {
+    header {
+        padding: 16px 24px;
+    }
+
+    nav a {
+        margin-left: 18px;
+    }
+
+    .container {
+        padding: 40px 18px;
+    }
+
+    .card {
+        max-width: 680px;
+        padding: 30px;
+    }
+
+    .page-image {
+        height: 160px;
+    }
+
+    .park-image {
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 14px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    nav a {
+        margin-left: 0;
+        margin-right: 12px;
+    }
+
+    .gov-banner {
+        padding: 10px 14px;
+        gap: 10px;
+    }
+
+    .gov-emblem {
+        width: 34px;
+        height: 34px;
+    }
+
+    .gov-title {
+        font-size: 14px;
+    }
+
+    .gov-subtitle {
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 28px 12px;
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .page-image {
+        height: 140px;
+    }
+
+    .park-image {
+        height: 130px;
+    }
+
+    input,
+    select,
+    .btn {
+        padding: 12px;
+    }
+}
