@@ -6,6 +6,7 @@ if (!isset($_GET['park']) || !isset($_GET['price'])) {
 
 $park = $_GET['park'];
 $price = (int)$_GET['price'];
+$today = date('Y-m-d');
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,6 +18,9 @@ $price = (int)$_GET['price'];
 
 <header>
 <div>Booking - <?php echo htmlspecialchars($park); ?></div>
+<nav>
+<a href="index.php">Home</a>
+</nav>
 </header>
 
 <section class="gov-banner">
@@ -42,7 +46,7 @@ $price = (int)$_GET['price'];
 
 <input type="text" name="name" placeholder="Full Name" required>
 <input type="email" name="email" placeholder="Email Address" required>
-<input type="date" name="date" required>
+<input type="date" name="date" min="<?php echo htmlspecialchars($today); ?>" required>
 <input type="number" name="tickets" placeholder="Number of Tickets" min="1" required>
 <label for="parking_type">Parking Requirement</label>
 <select name="parking_type" id="parking_type" required>

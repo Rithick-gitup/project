@@ -1,5 +1,6 @@
-<?php
+﻿<?php
 session_start();
+require_once __DIR__ . "/db.php";
 
 if (!empty($_SESSION["logged_in"])) {
     header("Location: index.php");
@@ -9,16 +10,30 @@ if (!empty($_SESSION["logged_in"])) {
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = $_POST["username"] ?? "";
+    $email = trim($_POST["email"] ?? "");
     $password = $_POST["password"] ?? "";
 
-    if ($username === "RITH" && $password === "1234") {
-        $_SESSION["logged_in"] = true;
-        $_SESSION["username"] = $username;
-        header("Location: index.php");
-        exit;
+    if ($email === "" || $password === "") {
+        $error = "Please enter your email and password.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = "Please enter a valid email address.";
     } else {
-        $error = "Invalid username or password.";
+        try {
+            $stmt = $pdo->prepare("SELECT id, username, password_hash FROM users WHERE email = :email LIMIT 1");
+            $stmt->execute([":email" => $email]);
+            $user = $stmt->fetch();
+
+            if ($user && password_verify($password, $user["password_hash"])) {
+                $_SESSION["logged_in"] = true;
+                $_SESSION["username"] = $user["username"];
+                header("Location: index.php");
+                exit;
+            } else {
+                $error = "Invalid email or password.";
+            }
+        } catch (PDOException $e) {
+            $error = "Login failed. Please try again.";
+        }
     }
 }
 ?>
@@ -112,8 +127,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="error"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
         <form method="post" action="">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
 
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>

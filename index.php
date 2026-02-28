@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 
 if (empty($_SESSION["logged_in"])) {
@@ -20,10 +20,16 @@ if (empty($_SESSION["logged_in"])) {
 <a href="index.php">Home</a>
 <a href="parks.php">Parks</a>
 <a href="admin.php">Admin</a>
+<a href="users.php">Profile</a>
+<?php if (($_SESSION["username"] ?? "") === "iam_rithick"): ?>
+<a href="bookings_details.php">Bookings</a>
+<?php endif; ?>
+<a href="logout.php">Logout</a>
 </nav>
 </header>
 
 <section class="gov-banner">
+<div class="user-banner">Welcome, <?php echo htmlspecialchars($_SESSION["username"] ?? "User"); ?></div>
 <img class="gov-emblem" src="assets/images/gov-emblem.svg" alt="National Emblem">
 <div>
 <p class="gov-title">Government Park Services Portal</p>

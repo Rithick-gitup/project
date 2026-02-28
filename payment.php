@@ -4,8 +4,20 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit();
 }
 
+function isValidFutureOrTodayDate(string $date): bool
+{
+    $parsed = DateTime::createFromFormat('Y-m-d', $date);
+    if (!$parsed || $parsed->format('Y-m-d') !== $date) {
+        return false;
+    }
+
+    $today = (new DateTime('today'))->format('Y-m-d');
+    return $date >= $today;
+}
+
 $park = $_POST['park'] ?? '';
 $name = $_POST['name'] ?? '';
+$email = $_POST['email'] ?? '';
 $date = $_POST['date'] ?? '';
 $tickets = (int)($_POST['tickets'] ?? 0);
 $price = (int)($_POST['price'] ?? 0);
@@ -20,6 +32,18 @@ $parkingRates = [
 
 if (!array_key_exists($parkingType, $parkingRates)) {
     $parkingType = 'None';
+}
+
+if (
+    $park === '' ||
+    $name === '' ||
+    $email === '' ||
+    !filter_var($email, FILTER_VALIDATE_EMAIL) ||
+    !isValidFutureOrTodayDate($date) ||
+    $tickets < 1 ||
+    $price < 0
+) {
+    die("Invalid booking details. Please choose today or an upcoming date.");
 }
 
 $parkingFee = $parkingRates[$parkingType];
@@ -37,6 +61,9 @@ $total = $ticketTotal + $parkingFee;
 
 <header>
     <div class="logo">Government Park Booking</div>
+    <nav>
+    <a href="index.php">Home</a>
+    </nav>
 </header>
 
 <section class="gov-banner">
@@ -57,6 +84,7 @@ $total = $ticketTotal + $parkingFee;
 <div class="summary-box">
     <p><strong>Park:</strong> <?php echo htmlspecialchars($park); ?></p>
     <p><strong>Visitor Name:</strong> <?php echo htmlspecialchars($name); ?></p>
+    <p><strong>Visitor Email:</strong> <?php echo htmlspecialchars($email); ?></p>
     <p><strong>Visit Date:</strong> <?php echo htmlspecialchars($date); ?></p>
     <p><strong>Tickets:</strong> <?php echo htmlspecialchars((string)$tickets); ?></p>
     <p><strong>Price Per Ticket:</strong> &#8377;<?php echo htmlspecialchars((string)$price); ?></p>
@@ -69,6 +97,7 @@ $total = $ticketTotal + $parkingFee;
 <form action="bill.php" method="POST">
 <input type="hidden" name="park" value="<?php echo htmlspecialchars($park); ?>">
 <input type="hidden" name="name" value="<?php echo htmlspecialchars($name); ?>">
+<input type="hidden" name="email" value="<?php echo htmlspecialchars($email); ?>">
 <input type="hidden" name="date" value="<?php echo htmlspecialchars($date); ?>">
 <input type="hidden" name="tickets" value="<?php echo htmlspecialchars((string)$tickets); ?>">
 <input type="hidden" name="parking_type" value="<?php echo htmlspecialchars($parkingType); ?>">
